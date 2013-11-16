@@ -83,7 +83,8 @@ func main() {
 		if err != nil {
 			log.Fatal("diff cache: ", err)
 		}
-
+                // @todo create a construction where the diffs are processed from the openstreetmap url when 
+                // no diff files are given as argument
 		for _, oscFile := range config.DiffFlags.Args() {
 			err := diff.Update(oscFile, geometryLimiter, nil, osmCache, diffCache, false)
 			if err != nil {
