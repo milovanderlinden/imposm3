@@ -175,6 +175,16 @@ Get Imposm 3 and all dependencies:
 
     git clone https://github.com/omniscale/imposm3 src/imposm3
     go get imposm3
+    
+For now you need to upgrade lib/pq to the bulk branch:
+
+    cd $GOPATH/src/github.com/lib/pq
+    git remote add olt https://github.com/olt/libpq.git
+    git fetch olt
+    git checkout olt/bulk
+
+Install
+
     go install imposm3
 
 Done. You should now have an imposm3 binary in `$GOPATH/bin`.
