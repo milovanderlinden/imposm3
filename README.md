@@ -182,6 +182,7 @@ For now you need to upgrade lib/pq to the bulk branch:
     git remote add olt https://github.com/olt/libpq.git
     git fetch olt
     git checkout olt/bulk
+    cd $GOPATH
 
 Install
 
