@@ -175,9 +175,25 @@ Get Imposm 3 and all dependencies:
 
     git clone https://github.com/omniscale/imposm3 src/imposm3
     go get imposm3
+    
+For now you need to upgrade lib/pq to the bulk branch:
+
+    cd $GOPATH/src/github.com/lib/pq
+    git remote add olt https://github.com/olt/libpq.git
+    git fetch olt
+    git checkout olt/bulk
+    cd $GOPATH
+
+Install
+
     go install imposm3
 
 Done. You should now have an imposm3 binary in `$GOPATH/bin`.
+
+Testing with a small planet
+
+    wget http://planet.openstreetmap.nl/curacao/planet-curacao-131115.osm.pbf
+    bin/imposm3 import -connection postgis://username:pass@localhost/imposm3 -mapping src/imposm3/example-mapping.json -read planet-curacao-131115.osm.pbf -write=true -overwritecache
 
 Go compiles to static binaries and so Imposm 3 has no runtime dependencies to Go.
 Just copy the `imposm3` binary to your server for deployment. The C/C++ libraries listed above are still required though.
