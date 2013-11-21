@@ -193,10 +193,8 @@ Done. You should now have an imposm3 binary in `$GOPATH/bin`.
 Testing with a small planet
 
     wget http://planet.openstreetmap.nl/curacao/planet-curacao-131115.osm.pbf
-    bin/imposm3 import -connection 
-postgis://username:pass@localhost/imposm3 -mapping 
-src/imposm3/basemaps-mapping.json -read planet-curacao-131115.osm.pbf 
--write=true -overwritecache
+    bin/imposm3 import -connection postgis://username:pass@localhost/imposm3 -mapping 
+src/imposm3/basemaps-mapping.json -read planet-curacao-131115.osm.pbf -write=true -overwritecache
 
 Go compiles to static binaries and so Imposm 3 has no runtime dependencies to Go.
 Just copy the `imposm3` binary to your server for deployment. The C/C++ libraries listed above are still required though.
